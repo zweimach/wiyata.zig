@@ -1,0 +1,26 @@
+name: Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  unit:
+    name: unit test
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: Setup zig
+        uses: goto-bus-stop/setup-zig@v1
+        with:
+          version: 0.7.1
+
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Build and test
+        run: zig build test
