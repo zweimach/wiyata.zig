@@ -1,6 +1,8 @@
 const testing = @import("std").testing;
 
-usingnamespace @import("wiyata").report_repair;
+const report_repair = @import("report_repair.zig");
+const reportRepair = report_repair.reportRepair;
+const reportRepairPartTwo = report_repair.reportRepairPartTwo;
 
 var TEST_CASE = [_]usize{
     2000, 50,   1984, 1600, 1736, 1572, 2010, 1559, 1999, 1764, 1808, 1745,
@@ -24,9 +26,9 @@ var TEST_CASE = [_]usize{
 
 test "advent_of_code report_repair" {
     var input = ([_]usize{ 1721, 979, 366, 299, 675, 1456 });
-    testing.expectEqual(@as(usize, 514579), reportRepair(input[0..]));
-    testing.expectEqual(@as(usize, 63616), reportRepair(TEST_CASE[0..]));
+    try testing.expectEqual(@as(usize, 514579), reportRepair(input[0..]));
+    try testing.expectEqual(@as(usize, 63616), reportRepair(TEST_CASE[0..]));
 
-    testing.expectEqual(@as(usize, 241861950), reportRepairPartTwo(input[0..]));
-    testing.expectEqual(@as(usize, 67877784), reportRepairPartTwo(TEST_CASE[0..]));
+    try testing.expectEqual(@as(usize, 241861950), reportRepairPartTwo(input[0..]));
+    try testing.expectEqual(@as(usize, 67877784), reportRepairPartTwo(TEST_CASE[0..]));
 }

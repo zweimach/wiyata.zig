@@ -4,11 +4,11 @@ const sort = std.sort;
 
 const SUM = 2020;
 
-fn compare(context: void, a: usize, b: usize) math.Order {
+fn compare(_: void, a: usize, b: usize) math.Order {
     return math.order(a, b);
 }
 
-fn lessThan(context: void, a: usize, b: usize) bool {
+fn lessThan(_: void, a: usize, b: usize) bool {
     return a < b;
 }
 
